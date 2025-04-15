@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+import { TextField, Box } from "@mui/material";
 
 interface Product {
   id: number;
@@ -37,13 +35,22 @@ export default function Home() {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <Grid container spacing={3}>
+      <Box
+        display="grid"
+        gridTemplateColumns={{
+          xs: "1fr",
+          sm: "1fr 1fr",
+          md: "1fr 1fr 1fr",
+          lg: "1fr 1fr 1fr 1fr",
+        }}
+        gap={3}
+      >
         {filteredProducts.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Box key={product.id}>
             <ProductCard product={product} />
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 }
