@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-import { Grid, TextField, Box } from "@mui/material";
+import { TextField, Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
 
 interface Product {
   id: number;
