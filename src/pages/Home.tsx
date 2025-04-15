@@ -3,7 +3,7 @@ import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Unstable_Grid2";
+import Grid from "@mui/material/Grid";
 
 interface Product {
   id: number;
@@ -39,7 +39,7 @@ export default function Home() {
 
       <Grid container spacing={3}>
         {filteredProducts.map((product) => (
-          <Grid xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard product={product} />
           </Grid>
         ))}
