@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
-import { TextField, Box } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Unstable_Grid2";
 
 interface Product {
   id: number;
@@ -26,10 +27,10 @@ export default function Home() {
   );
 
   return (
-    <Box>
+    <Box p={2}>
       <TextField
-        label="search"
-        variant="filled"
+        label="Search"
+        variant="outlined"
         fullWidth
         sx={{ mb: 4 }}
         value={searchTerm}
@@ -38,7 +39,7 @@ export default function Home() {
 
       <Grid container spacing={3}>
         {filteredProducts.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+          <Grid xs={12} sm={6} md={4} lg={3} key={product.id}>
             <ProductCard product={product} />
           </Grid>
         ))}
